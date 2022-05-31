@@ -10,7 +10,13 @@ namespace QuizMaker
     {
         public string Question;
         public List<string> Answers = new List<string>();
-        public int CorrectAnswerIndex; 
+        public int CorrectAnswerIndex;
+
+        public override string ToString()
+        {
+            return "QnA: " + Question + " " + Answers + " " + CorrectAnswerIndex; 
+
+        }
     }
 
     public class QuestionList

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
+
+
 namespace QuizMaker
 {
     public class LogicMethods
@@ -28,38 +30,46 @@ namespace QuizMaker
             Sports.Answers.Add("AC Milan");
             Sports.CorrectAnswerIndex = 1;
 
+            QnA BrieCheese = new QnA();
+            BrieCheese.Question = "Where does Brie cheese come from?";
+            BrieCheese.Answers.Add("Germany");
+            BrieCheese.Answers.Add("Switzerland");
+            BrieCheese.Answers.Add("France");
+            BrieCheese.Answers.Add("UK");
+            BrieCheese.CorrectAnswerIndex = 2;
 
-            //Random rnd = new Random();
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(CapitalsOfTheWorld);
             QuestionList.Add(Sports);
+            QuestionList.Add(BrieCheese);
 
-            //int index = rnd.Next(QuestionList.Count);
-            //Console.WriteLine(QuestionList[index]);
-                
-            XmlSerializer serializer= new XmlSerializer(typeof(List<QnA>));
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
             var path = @"C:\tmp\QuestionList.xml";
             
+
+            using (FileStream file = File.Create(path))
+            {
+                serializer.Serialize(file, QuestionList);
+            }
+
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionList = serializer.Deserialize(file) as List<QnA>;
             }
 
-            foreach(var QnA in QuestionList)
-            {
-                Console.WriteLine(QnA.Question);
+            Console.WriteLine(string.Join(", ", QuestionList));
 
-            }
 
-            
 
         }
 
         public static void DisplayQnAs()
         {
             
-
         } 
+
+
        
     }
 }
