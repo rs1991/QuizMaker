@@ -21,6 +21,7 @@ namespace QuizMaker
             CapitalsOfTheWorld.Answers.Add("Graz");
             CapitalsOfTheWorld.Answers.Add("Salzburg");
             CapitalsOfTheWorld.Answers.Add("Innsbruck");
+            CapitalsOfTheWorld.CorrectAnswerIndex = 0;
 
             QnA Sports = new QnA();
             Sports.Question = "Who has won the champions league the most times?";
