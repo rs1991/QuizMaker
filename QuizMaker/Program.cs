@@ -9,13 +9,13 @@ namespace QuizMaker
 
             //UiMethods.DisplayQnA();
             LogicMethods.AddQnAs();
+            
 
 
 
 
 
 
-
-        }
+          }
     }
 }
