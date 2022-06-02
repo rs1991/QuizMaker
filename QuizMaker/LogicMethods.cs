@@ -31,19 +31,12 @@ namespace QuizMaker
             Sports.Answers.Add("AC Milan");
             Sports.CorrectAnswerIndex = 1;
 
-            QnA BrieCheese = new QnA();
-            BrieCheese.Question = "Where does Brie cheese come from?";
-            BrieCheese.Answers.Add("Germany");
-            BrieCheese.Answers.Add("Switzerland");
-            BrieCheese.Answers.Add("France");
-            BrieCheese.Answers.Add("UK");
-            BrieCheese.CorrectAnswerIndex = 2;
+            
 
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(CapitalsOfTheWorld);
             QuestionList.Add(Sports);
-            QuestionList.Add(BrieCheese);
-
+            
 
             XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
             var path = @"C:\tmp\QuestionList.xml";
@@ -59,18 +52,11 @@ namespace QuizMaker
                 QuestionList = serializer.Deserialize(file) as List<QnA>;
             }
 
-            Console.WriteLine(string.Join(", ", QuestionList));
-
-
+            Console.WriteLine(String.Join(System.Environment.NewLine, CapitalsOfTheWorld.Question));
+            Console.WriteLine(String.Join(System.Environment.NewLine, CapitalsOfTheWorld.Answers));
+            
 
         }
 
-        public static void DisplayQnAs()
-        {
-            
-        } 
-
-
-       
     }
 }

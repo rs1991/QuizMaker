@@ -11,16 +11,16 @@ namespace QuizMaker
         public string Question;
         public List<string> Answers = new List<string>();
         public int CorrectAnswerIndex;
+                        
+        
 
         public override string ToString()
         {
-            return "QnA: " + Question + " " + Answers + " " + CorrectAnswerIndex; 
-
+            return Question + "\n" + Answers;
         }
+
     }
 
-    public class QuestionList
-    {
-       public List<string> QuestionBank = new List<string>();
-    }
+    
+    
 }
