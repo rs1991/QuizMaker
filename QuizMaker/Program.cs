@@ -7,10 +7,11 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
+            //UiMethods.DisplayQnA();
             LogicMethods.AddQnAs();
 
 
-           
+
 
 
 

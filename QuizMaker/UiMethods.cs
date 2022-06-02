@@ -21,8 +21,11 @@ namespace QuizMaker
             return option;
         }
 
-      
-
-
+        public static void DisplayQnA()
+        {
+            LogicMethods.AddQnAs();
+            
+        }
+        
     }
 }

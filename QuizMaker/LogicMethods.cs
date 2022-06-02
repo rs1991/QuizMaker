@@ -30,14 +30,12 @@ namespace QuizMaker
             Sports.Answers.Add("Bayern Munich");
             Sports.Answers.Add("AC Milan");
             Sports.CorrectAnswerIndex = 1;
-
-            
+                        
 
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(CapitalsOfTheWorld);
             QuestionList.Add(Sports);
             
-
             XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
             var path = @"C:\tmp\QuestionList.xml";
             
@@ -52,9 +50,8 @@ namespace QuizMaker
                 QuestionList = serializer.Deserialize(file) as List<QnA>;
             }
 
-            Console.WriteLine(String.Join(System.Environment.NewLine, CapitalsOfTheWorld.Question));
-            Console.WriteLine(String.Join(System.Environment.NewLine, CapitalsOfTheWorld.Answers));
-            
+            Console.Write(string.Join(System.Environment.NewLine, Sports.Question + "\n " + Sports.Answers));
+            Console.Write(string.Join(System.Environment.NewLine, Sports.Answers));
 
         }
 
