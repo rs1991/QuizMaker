@@ -12,6 +12,7 @@ namespace QuizMaker
         public static void WelcomeMessage()
         {
             Console.WriteLine("Welcome to the quiz!");
+            Console.WriteLine("--------------------");
         }
 
         public static double SelectOption(double option)

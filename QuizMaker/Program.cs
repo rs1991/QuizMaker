@@ -8,14 +8,17 @@ namespace QuizMaker
             UiMethods.WelcomeMessage();
 
             //UiMethods.DisplayQnA();
-            LogicMethods.AddQnAs();
-            
+           LogicMethods.AddQnAs();
+
+           //LogicMethods.CreateQuestions();
 
 
 
 
 
 
-          }
+
+
+           }
     }
 }

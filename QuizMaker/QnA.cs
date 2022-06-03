@@ -9,15 +9,24 @@ namespace QuizMaker
     public class QnA
     {
         public string Question;
-        public List<string> Answers = new List<string>();
+        public List<string> Answers = new List<string>(4);
         public int CorrectAnswerIndex;
 
         
 
-        public override string ToString()
+
+
+
+    public override string ToString()
         {
-            return Question + "\n" + Answers;
+            foreach (var answer in Answers)
+            {
+                Console.WriteLine(answer);
+            }
+            return Question;
         }
+
+
 
     }
 
