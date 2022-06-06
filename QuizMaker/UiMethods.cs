@@ -11,22 +11,21 @@ namespace QuizMaker
 
         public static void WelcomeMessage()
         {
+            Console.WriteLine("--------------------");
             Console.WriteLine("Welcome to the quiz!");
             Console.WriteLine("--------------------");
         }
 
-        public static double SelectOption(double option)
+        public static string DisplayQuestion(string Question)
         {
-            Console.WriteLine("What would you like to do? Select 1 to add questions and 2 to play");
-            Console.ReadLine();
-            return option;
-        }
-
-        public static void DisplayQnA()
-        {
-            LogicMethods.AddQnAs();
-            
+           LogicMethods.AddQnAs();
+           return Question;
         }
         
+        public static void DisplayAnswers(QnA ans)
+        {
+            ans.AnswerDisp();
+        }
+
     }
 }
