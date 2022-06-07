@@ -5,22 +5,24 @@ namespace QuizMaker
     {
         static void Main(string[] args)
         {
-            //string Question = "";
 
+                        
+            QnA Question = new QnA();
+            Question.Question = "Which country gifted America the statue of Liberty?";
+            Question.Answers.Add("Belgium");
+            Question.Answers.Add("France");
+            Question.Answers.Add("Sweden");
+            Question.Answers.Add("Denmark");
+            Question.CorrectAnswerIndex = 1;
 
-            QnA Question6 = new QnA();
-            Question6.Question = "Which country gifted America the statue of Liberty?";
-            Question6.Answers.Add("Belgium");
-            Question6.Answers.Add("France");
-            Question6.Answers.Add("Sweden");
-            Question6.Answers.Add("Denmark");
-            Question6.CorrectAnswerIndex = 1;
+            
 
             UiMethods.WelcomeMessage();
 
             
-            UiMethods.DisplayQuestion(Question6.Question);
-            UiMethods.DisplayAnswers(Question6);
+            UiMethods.DisplayQuestion(Question.Question);
+            UiMethods.DisplayAnswers(Question);
+            
 
 
 
