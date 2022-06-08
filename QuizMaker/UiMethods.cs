@@ -19,7 +19,6 @@ namespace QuizMaker
         public static string DisplayQuestion(string Question)
         {
            LogicMethods.AddQnAs();
-           Question.ToString();
            return Question;
            
         }

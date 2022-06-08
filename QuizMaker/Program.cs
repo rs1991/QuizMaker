@@ -5,32 +5,9 @@ namespace QuizMaker
     {
         static void Main(string[] args)
         {
-
-                        
-            QnA Question = new QnA();
-            Question.Question = "Which country gifted America the statue of Liberty?";
-            Question.Answers.Add("Belgium");
-            Question.Answers.Add("France");
-            Question.Answers.Add("Sweden");
-            Question.Answers.Add("Denmark");
-            Question.CorrectAnswerIndex = 1;
-
-            
-
             UiMethods.WelcomeMessage();
-
-            
+            QnA Question = new QnA();
             UiMethods.DisplayQuestion(Question.Question);
-            UiMethods.DisplayAnswers(Question);
-            
-
-
-
-
-
-
-
-
         }
     }
 }
