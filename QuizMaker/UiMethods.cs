@@ -22,33 +22,21 @@ namespace QuizMaker
            return Question;
            
         }
-        
+                
         public static void DisplayAnswers(QnA ans)
         {
             ans.AnswerDisp();
         }
-
-        public static int SelectAnswer(int selectedAnswer, QnA AnswerIndex)
+       
+        public static int SelectAnswer()
         {
+            Console.WriteLine("----------------------------");
             Console.WriteLine("Select answer 1, 2, 3 or 4: ");
-            selectedAnswer = Convert.ToInt32(Console.ReadLine());
-
-            if(selectedAnswer == AnswerIndex.CorrectAnswerIndex)
-            {
-                Console.WriteLine("Correct answer");
-            }
-            else
-            {
-                Console.WriteLine("Wrong answer");
-            }
-            
-            return selectedAnswer;
+            int selectAnswer = Convert.ToInt32(Console.ReadLine());
+            return selectAnswer;
         }
 
-        public static bool VerifyAnswer(int selectedAnswer)
-        {
-            return VerifyAnswer(selectedAnswer);
-        }
+        
 
     }
 }

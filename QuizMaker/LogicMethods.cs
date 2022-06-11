@@ -76,11 +76,7 @@ namespace QuizMaker
             int index = random.Next(QuestionList.Count);
             Console.WriteLine(QuestionList[index]);
             UiMethods.DisplayAnswers(QuestionList[index]);
-
-
-            //AnswerDisp();
-
-
+           
 
 
             XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
