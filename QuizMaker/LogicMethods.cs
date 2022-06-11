@@ -77,8 +77,6 @@ namespace QuizMaker
             Console.WriteLine(QuestionList[index]);
             UiMethods.DisplayAnswers(QuestionList[index]);
            
-
-
             XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
             var path = @"C:\tmp\QuestionList.xml";
             using (FileStream file = File.Create(path))

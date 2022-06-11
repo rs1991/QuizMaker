@@ -28,6 +28,7 @@ namespace QuizMaker
             ans.AnswerDisp();
         }
        
+        
         public static int SelectAnswer()
         {
             Console.WriteLine("----------------------------");
@@ -35,8 +36,24 @@ namespace QuizMaker
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
             return selectAnswer;
         }
-
         
+
+        public static bool VerifyAnswer(int SelectedAnswer)
+        {
+            
+
+            if (SelectAnswer() == SelectedAnswer)
+            {
+                Console.WriteLine("Correct");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Wrong!");
+                return false;
+
+            }
+        }
 
     }
 }

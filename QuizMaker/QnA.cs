@@ -14,12 +14,10 @@ namespace QuizMaker
 
         public void AnswerDisp()
         {
-            
             foreach(var answer in Answers)
             {
                 Console.WriteLine(answer);
             }
-
         }
 
         

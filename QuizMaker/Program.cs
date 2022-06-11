@@ -5,17 +5,17 @@ namespace QuizMaker
     {
         static void Main(string[] args)
         {
+            
             UiMethods.WelcomeMessage();
             QnA Question = new QnA();
-            UiMethods.DisplayQuestion(Question.Question);
-
             
-            int SelectAnswer = UiMethods.SelectAnswer();
+            UiMethods.DisplayQuestion(Question.Question);
+            int SelectedAnswer = UiMethods.SelectAnswer();
+            UiMethods.VerifyAnswer(SelectedAnswer);
 
-            if(SelectAnswer == Question.CorrectAnswerIndex)
-            {
-                Console.WriteLine("Correct answer!");
-            }
+
+
+
         }
     }
 }
