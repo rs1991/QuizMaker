@@ -12,13 +12,7 @@ namespace QuizMaker
         public List<string> Answers = new List<string>(4);
         public int CorrectAnswerIndex;
 
-        public void AnswerDisp()
-        {
-            foreach(var answer in Answers)
-            {
-                Console.WriteLine(answer);
-            }
-        }
+        
 
         
         public override string ToString()

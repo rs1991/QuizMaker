@@ -8,17 +8,16 @@ namespace QuizMaker
             UiMethods.WelcomeMessage();          
 
             QnA Question = new QnA();
+           
 
-            
             List <QnA> QuestionList = LogicMethods.GenerateQnAList();
 
            
             var random = new Random();                               
-            int index = random.Next(QuestionList.Count);             
-            Console.WriteLine(QuestionList[index]);                  
-            UiMethods.DisplayAnswers(QuestionList[index]);                      
+            int index = random.Next(QuestionList.Count);                           
+            UiMethods.DisplayQuestion(QuestionList[index]);
+            UiMethods.AnswerDisp(QuestionList[index]);
 
-            UiMethods.DisplayQuestion(Question.Question);
 
             int SelectedAnswer = UiMethods.SelectAnswer();
             

@@ -16,14 +16,23 @@ namespace QuizMaker
             Console.WriteLine("--------------------");
         }
 
-        public static string DisplayQuestion(string Question)
+        public static void DisplayQuestion(QnA q)
         {
-            return Question;
+            Console.WriteLine(q.Question);
         }
 
-        public static void DisplayAnswers(QnA ans)
+        //public static void DisplayAnswers(QnA ans)
+        //{
+        //    ans.AnswerDisp();
+        //}
+
+        public static void AnswerDisp(QnA a)
         {
-            ans.AnswerDisp();
+                        
+            foreach (var ans in a.Answers)
+            {
+                Console.WriteLine(ans);
+            }
         }
 
         public static int SelectAnswer()
