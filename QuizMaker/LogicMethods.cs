@@ -12,7 +12,7 @@ namespace QuizMaker
     public class LogicMethods
     {
 
-        public static void AddQnAs()
+        public static void GenerateQnAList() 
         {
 
             QnA Question1 = new QnA();
@@ -63,7 +63,6 @@ namespace QuizMaker
             Question6.Answers.Add("Denmark");
             Question6.CorrectAnswerIndex = 1;
 
-            var random = new Random();
 
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(Question1);
@@ -73,68 +72,90 @@ namespace QuizMaker
             QuestionList.Add(Question5);
             QuestionList.Add(Question6);
 
-            int index = random.Next(QuestionList.Count);
-            Console.WriteLine(QuestionList[index]);
-            UiMethods.DisplayAnswers(QuestionList[index]);
-           
+            //TODO: return that list back to whoever requested it
+
+            var random = new Random();                               //TODO: Should be part of main program
+            int index = random.Next(QuestionList.Count);             //TODO: Should be part of main program
+            Console.WriteLine(QuestionList[index]);                  //TODO: Should be part of main program
+            UiMethods.DisplayAnswers(QuestionList[index]);           //TODO: Should be part of main program
+
+        }
+
+        public static void WriteQnAList(List<QnA>QuestionList, string path)
+        {
             XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
-            var path = @"C:\tmp\QuestionList.xml";
             using (FileStream file = File.Create(path))
             {
                 serializer.Serialize(file, QuestionList);
             }
+        }
+
+        public static List<QnA> LoadQnAList(string path)
+        {
+            List<QnA> QuestionList;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
             using (FileStream file = File.OpenRead(path))
             {
                 QuestionList = serializer.Deserialize(file) as List<QnA>;
             }
-            //Console.Write(string.Join(System.Environment.NewLine, Sports.Question + "\n " + Sports.Answers));
-            //Console.WriteLine(string.Join(System.Environment.NewLine, CapitalsOfTheWorld.Question));
-            /*
-            string joinedString = "";
-            foreach(string answer in CapitalsOfTheWorld.Answers)
-            {
-                joinedString += answer + Environment.NewLine;
-            }
-            Console.WriteLine(joinedString);   
-           
+            return QuestionList;
         }
+        //Console.Write(string.Join(System.Environment.NewLine, Sports.Question + "\n " + Sports.Answers));
+        //Console.WriteLine(string.Join(System.Environment.NewLine, CapitalsOfTheWorld.Question));
 
-        /*
-        public static void CreateQuestions()
+        //    string joinedString = "";
+        //    foreach(string answer in CapitalsOfTheWorld.Answers)
+        //    {
+        //        joinedString += answer + Environment.NewLine;
+        //    }
+        //    Console.WriteLine(joinedString);   
+
+        //}
+
+
+        //public static void CreateQuestions()
+        //{
+        //    List<string> QuestionList = new List<string>();
+        //    Console.Write("Please add your question: ");
+        //    string UserQuestion = Console.ReadLine();
+        //    QnA NewQuestion = new QnA();
+        //    NewQuestion.Question = UserQuestion;
+        //Console.Write("Please add your answers: ");
+        //string newAnswer = Console.ReadLine();
+        //NewQuestion.Answers.Add("");
+        //NewQuestion.Answers.Add("");
+        //NewQuestion.Answers.Add("");
+        //NewQuestion.Answers.Add("");
+
+        //    QuestionList.Add(Console.ReadLine());
+        //    //QnA Question1 = new QnA();
+        //    for (int i = 0; i < QuestionList.Count; i++)
+        //    {
+        //        Console.WriteLine(QuestionList[i]);
+        //    }
+
+
+
+
+        //    foreach (var QnA in QuestionList)
+        //    {
+        //        Console.WriteLine(QnA.Question);
+
+        //    }
+
+
+        // }
+
+        public static bool VerifyAnswer(int SelectedAnswer, QnA anAToCheck)
         {
-            List<string> QuestionList = new List<string>();
-            Console.Write("Please add your question: ");
-            string UserQuestion = Console.ReadLine();
-            QnA NewQuestion = new QnA();
-            NewQuestion.Question = UserQuestion;
-            Console.Write("Please add your answers: ");
-            string newAnswer = Console.ReadLine();
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-
-            QuestionList.Add(Console.ReadLine());
-            //QnA Question1 = new QnA();
-            for (int i = 0; i < QuestionList.Count; i++)
+            if (anAToCheck.CorrectAnswerIndex == SelectedAnswer)
             {
-                Console.WriteLine(QuestionList[i]);
+                return true;
             }
-
-
-     */
-            /*
-            foreach (var QnA in QuestionList)
+            else
             {
-                Console.WriteLine(QnA.Question);
-
+                return false;
             }
-            */
-
         }
-        
-
-      
-
     }
 }

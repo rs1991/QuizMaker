@@ -18,17 +18,17 @@ namespace QuizMaker
 
         public static string DisplayQuestion(string Question)
         {
-           LogicMethods.AddQnAs();
-           return Question;
-           
+            LogicMethods.GenerateQnAList();
+            return Question;
+
         }
-                
+
         public static void DisplayAnswers(QnA ans)
         {
             ans.AnswerDisp();
         }
-       
-        
+
+
         public static int SelectAnswer()
         {
             Console.WriteLine("----------------------------");
@@ -36,24 +36,26 @@ namespace QuizMaker
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
             return selectAnswer;
         }
-        
+        //public static bool VerifyAnswer(int SelectedAnswer, int CorrectAnswer)
+        //{
+        //    return SelectedAnswer == CorrectAnswer;
+        //}
 
-        public static bool VerifyAnswer(int SelectedAnswer)
+       
+        public static void DisplayResultInfo(bool correct)
         {
-            
-
-            if (SelectAnswer() == SelectedAnswer)
+            if (correct)
             {
-                Console.WriteLine("Correct");
-                return true;
+                Console.WriteLine("Correct!");
             }
             else
             {
                 Console.WriteLine("Wrong!");
-                return false;
-
             }
         }
 
+
     }
+
 }
+

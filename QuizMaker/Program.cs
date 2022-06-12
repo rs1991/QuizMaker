@@ -5,16 +5,15 @@ namespace QuizMaker
     {
         static void Main(string[] args)
         {
-            
-            UiMethods.WelcomeMessage();
+            UiMethods.WelcomeMessage();          
+
             QnA Question = new QnA();
-            
             UiMethods.DisplayQuestion(Question.Question);
+
             int SelectedAnswer = UiMethods.SelectAnswer();
-            UiMethods.VerifyAnswer(SelectedAnswer);
-
-
-
+            bool result = LogicMethods.VerifyAnswer(SelectedAnswer, Question);
+            
+            UiMethods.DisplayResultInfo(result);
 
         }
     }
