@@ -12,7 +12,7 @@ namespace QuizMaker
     public class LogicMethods
     {
 
-        public static void GenerateQnAList() 
+         public static List<QnA> GenerateQnAList() 
         {
 
             QnA Question1 = new QnA();
@@ -72,12 +72,14 @@ namespace QuizMaker
             QuestionList.Add(Question5);
             QuestionList.Add(Question6);
 
+            return QuestionList;
+
             //TODO: return that list back to whoever requested it
 
-            var random = new Random();                               //TODO: Should be part of main program
-            int index = random.Next(QuestionList.Count);             //TODO: Should be part of main program
-            Console.WriteLine(QuestionList[index]);                  //TODO: Should be part of main program
-            UiMethods.DisplayAnswers(QuestionList[index]);           //TODO: Should be part of main program
+            //var random = new Random();                               //TODO: Should be part of main program
+            //int index = random.Next(QuestionList.Count);             //TODO: Should be part of main program
+            //Console.WriteLine(QuestionList[index]);                  //TODO: Should be part of main program
+            //UiMethods.DisplayAnswers(QuestionList[index]);           //TODO: Should be part of main program
 
         }
 
@@ -148,6 +150,8 @@ namespace QuizMaker
 
         public static bool VerifyAnswer(int SelectedAnswer, QnA anAToCheck)
         {
+            SelectedAnswer -= 1;
+            
             if (anAToCheck.CorrectAnswerIndex == SelectedAnswer)
             {
                 return true;
