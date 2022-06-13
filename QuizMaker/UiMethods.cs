@@ -19,12 +19,7 @@ namespace QuizMaker
         public static void DisplayQuestion(QnA q)
         {
             Console.WriteLine(q.Question);
-        }
-
-        //public static void DisplayAnswers(QnA ans)
-        //{
-        //    ans.AnswerDisp();
-        //}
+        }      
 
         public static void AnswerDisp(QnA a)
         {

@@ -11,10 +11,12 @@ namespace QuizMaker
 {
     public class LogicMethods
     {
-
+        /// <summary>
+        /// Question and answers objects created and added to a list     
+        /// </summary>
+        /// <returns>QnA object</returns>
          public static List<QnA> GenerateQnAList() 
         {
-
             QnA Question1 = new QnA();
             Question1.Question = "What's the capital of Austria?";
             Question1.Answers.Add("Vienna");
@@ -22,7 +24,7 @@ namespace QuizMaker
             Question1.Answers.Add("Linz");
             Question1.Answers.Add("Innsbruck");
             Question1.CorrectAnswerIndex = 0;
-
+            
             QnA Question2 = new QnA();
             Question2.Question = "Who has won the champions league the most times?";
             Question2.Answers.Add("Liverpool");
@@ -30,7 +32,7 @@ namespace QuizMaker
             Question2.Answers.Add("Bayern Munich");
             Question2.Answers.Add("AC Milan");
             Question2.CorrectAnswerIndex = 1;
-
+            
             QnA Question3 = new QnA();
             Question3.Question = "Which city hosted the 2000 Olympics?";
             Question3.Answers.Add("London");
@@ -38,7 +40,7 @@ namespace QuizMaker
             Question3.Answers.Add("Sydney");
             Question3.Answers.Add("Rio de Janeiro");
             Question3.CorrectAnswerIndex = 2;
-
+            
             QnA Question4 = new QnA();
             Question4.Question = "Which is the first Harry Potter book?";
             Question4.Answers.Add("Deathly Hallows");
@@ -46,7 +48,7 @@ namespace QuizMaker
             Question4.Answers.Add("Goblet of Fire");
             Question4.Answers.Add("Chamber of Secrets");
             Question4.CorrectAnswerIndex = 1;
-
+            
             QnA Question5 = new QnA();
             Question5.Question = "Which artist famously cut off his own ear?";
             Question5.Answers.Add("Van Gogh");
@@ -54,7 +56,7 @@ namespace QuizMaker
             Question5.Answers.Add("Salvador Dali");
             Question5.Answers.Add("Pablo Picasso");
             Question5.CorrectAnswerIndex = 0;
-
+            
             QnA Question6 = new QnA();
             Question6.Question = "Which country gifted America the statue of Liberty?";
             Question6.Answers.Add("Belgium");
@@ -62,8 +64,7 @@ namespace QuizMaker
             Question6.Answers.Add("Sweden");
             Question6.Answers.Add("Denmark");
             Question6.CorrectAnswerIndex = 1;
-
-
+            
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(Question1);
             QuestionList.Add(Question2);
@@ -71,16 +72,8 @@ namespace QuizMaker
             QuestionList.Add(Question4);
             QuestionList.Add(Question5);
             QuestionList.Add(Question6);
-
+         
             return QuestionList;
-
-            //TODO: return that list back to whoever requested it
-
-            //var random = new Random();                               //TODO: Should be part of main program
-            //int index = random.Next(QuestionList.Count);             //TODO: Should be part of main program
-            //Console.WriteLine(QuestionList[index]);                  //TODO: Should be part of main program
-            //UiMethods.DisplayAnswers(QuestionList[index]);           //TODO: Should be part of main program
-
         }
 
         public static void WriteQnAList(List<QnA>QuestionList, string path)
