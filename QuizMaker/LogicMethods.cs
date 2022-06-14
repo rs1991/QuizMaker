@@ -64,7 +64,15 @@ namespace QuizMaker
             Question6.Answers.Add("Sweden");
             Question6.Answers.Add("Denmark");
             Question6.CorrectAnswerIndex = 1;
-            
+
+            QnA Question7 = new QnA();
+            Question7.Question = "In 1768, Captain James Cook set out to explore which ocean?";
+            Question7.Answers.Add("Atlantic Ocean");
+            Question7.Answers.Add("Arctic Ocean");
+            Question7.Answers.Add("Indian Ocean");
+            Question7.Answers.Add("Pacific Ocean");
+            Question7.CorrectAnswerIndex = 3;
+
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(Question1);
             QuestionList.Add(Question2);
@@ -72,7 +80,8 @@ namespace QuizMaker
             QuestionList.Add(Question4);
             QuestionList.Add(Question5);
             QuestionList.Add(Question6);
-         
+            QuestionList.Add(Question7);
+
             return QuestionList;
         }
 
@@ -95,19 +104,7 @@ namespace QuizMaker
             }
             return QuestionList;
         }
-        //Console.Write(string.Join(System.Environment.NewLine, Sports.Question + "\n " + Sports.Answers));
-        //Console.WriteLine(string.Join(System.Environment.NewLine, CapitalsOfTheWorld.Question));
-
-        //    string joinedString = "";
-        //    foreach(string answer in CapitalsOfTheWorld.Answers)
-        //    {
-        //        joinedString += answer + Environment.NewLine;
-        //    }
-        //    Console.WriteLine(joinedString);   
-
-        //}
-
-
+        
         //public static void CreateQuestions()
         //{
         //    List<string> QuestionList = new List<string>();
@@ -130,8 +127,6 @@ namespace QuizMaker
         //    }
 
 
-
-
         //    foreach (var QnA in QuestionList)
         //    {
         //        Console.WriteLine(QnA.Question);
@@ -144,6 +139,8 @@ namespace QuizMaker
         public static bool VerifyAnswer(int SelectedAnswer, QnA anAToCheck)
         {
             SelectedAnswer -= 1;
+            
+
             if (anAToCheck.CorrectAnswerIndex == SelectedAnswer)
             {
                 return true;

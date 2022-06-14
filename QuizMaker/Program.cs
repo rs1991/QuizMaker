@@ -10,7 +10,7 @@ namespace QuizMaker
             QnA Question = new QnA();
            
             List <QnA> QuestionList = LogicMethods.GenerateQnAList();
-
+            
             string path = @"C:\tmp\QuestionList.xml";
 
             LogicMethods.WriteQnAList(QuestionList, path);
@@ -23,7 +23,7 @@ namespace QuizMaker
 
             int SelectedAnswer = UiMethods.SelectAnswer();
             
-            bool result = LogicMethods.VerifyAnswer(SelectedAnswer, Question);
+            bool result = LogicMethods.VerifyAnswer(SelectedAnswer, QuestionList[index]);
             
             UiMethods.DisplayResultInfo(result);
 
