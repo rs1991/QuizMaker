@@ -16,6 +16,46 @@ namespace QuizMaker
             Console.WriteLine("--------------------");
         }
 
+        public enum GameMode
+        {
+            Play,
+            AddQuestion
+        }
+
+
+
+        public static void GamePlayChoice()
+        {
+
+            Console.WriteLine("Which mode would you like to choose? Select P to play and A to add questions");
+            string choice = Console.ReadLine().ToUpper();
+
+            switch (choice)
+            {
+                case "A":
+                    Console.WriteLine("---------------------");
+                    break;
+                    case "P":
+                    LogicMethods.CreateQuestions();
+                    break;
+                    default:
+                    Console.WriteLine("Select a valid option");
+                    break;
+            }
+            
+            
+            
+            //
+            //switch (mode) {
+            //    case GameMode.Play:
+            //        Console.WriteLine("Play the game");
+            //        break;
+            //       case GameMode.AddQuestion:
+            //        Console.WriteLine("Add questions");
+            //        break;
+            //        }
+            }
+
         public static void DisplayQuestion(QnA q)
         {
             Console.WriteLine(q.Question);
