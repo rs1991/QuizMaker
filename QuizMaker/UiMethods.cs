@@ -32,10 +32,10 @@ namespace QuizMaker
 
             switch (choice)
             {
-                case "A":
+                case "A": //Add questions
                     Console.WriteLine("---------------------");
                     break;
-                    case "P":
+                    case "P": //Play the game
                     LogicMethods.CreateQuestions();
                     break;
                     default:

@@ -131,7 +131,6 @@ namespace QuizMaker
         {
             SelectedAnswer -= 1;
             
-
             if (anAToCheck.CorrectAnswerIndex == SelectedAnswer)
             {
                 return true;
@@ -142,6 +141,14 @@ namespace QuizMaker
             }
         }
 
+        public static void VerifyAnswer(int SelectedAnswer)
+        {
+            if (SelectedAnswer > 4 || SelectedAnswer < 1)
+            {
+                Console.WriteLine("Please select a valid option");
+                SelectedAnswer = UiMethods.SelectAnswer();
+            }
+        }
         
     }
 }

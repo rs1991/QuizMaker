@@ -7,7 +7,7 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
-            UiMethods.GamePlayChoice();
+            //UiMethods.GamePlayChoice();
 
 
 
@@ -24,9 +24,11 @@ namespace QuizMaker
             UiMethods.DisplayQuestion(QuestionList[index]);
             UiMethods.AnswerDisp(QuestionList[index]);
             int SelectedAnswer = UiMethods.SelectAnswer();
+            LogicMethods.VerifyAnswer(SelectedAnswer);
+
             bool result = LogicMethods.VerifyAnswer(SelectedAnswer, QuestionList[index]);
             UiMethods.DisplayResultInfo(result);
-
+            
         }
     }
 }
