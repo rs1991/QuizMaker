@@ -7,8 +7,7 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
-            //UiMethods.GamePlayChoice();
-
+            UiMethods.GamePlayChoice();
 
 
             QnA Question = new QnA();
@@ -24,11 +23,13 @@ namespace QuizMaker
             UiMethods.DisplayQuestion(QuestionList[index]);
             UiMethods.AnswerDisp(QuestionList[index]);
             int SelectedAnswer = UiMethods.SelectAnswer();
-            LogicMethods.VerifyAnswer(SelectedAnswer);
+            LogicMethods.ValidateResponse(SelectedAnswer);
+
+            SelectedAnswer = UiMethods.SelectAnswer();
 
             bool result = LogicMethods.VerifyAnswer(SelectedAnswer, QuestionList[index]);
             UiMethods.DisplayResultInfo(result);
-            
+
         }
     }
 }

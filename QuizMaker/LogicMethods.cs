@@ -141,13 +141,14 @@ namespace QuizMaker
             }
         }
 
-        public static void VerifyAnswer(int SelectedAnswer)
+        public static void ValidateResponse(int SelectedAnswer)
         {
             if (SelectedAnswer > 4 || SelectedAnswer < 1)
             {
                 Console.WriteLine("Please select a valid option");
-                SelectedAnswer = UiMethods.SelectAnswer();
+                //UiMethods.SelectAnswer();
             }
+           
         }
         
     }
