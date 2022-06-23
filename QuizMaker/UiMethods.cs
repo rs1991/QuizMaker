@@ -22,8 +22,6 @@ namespace QuizMaker
             AddQuestion
         }
 
-
-
         public static string GamePlayChoice()
         {
             Console.WriteLine("Which mode would you like to choose? Select P to play and A to add questions");
@@ -40,6 +38,9 @@ namespace QuizMaker
             }
             return choice;
         }
+
+
+        
 
         public static void DisplayQuestion(QnA q)
         {
@@ -60,14 +61,11 @@ namespace QuizMaker
             Console.WriteLine("----------------------------");
             Console.WriteLine("Select answer 1, 2, 3 or 4: ");
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
-
             while (selectAnswer > 4 || selectAnswer < 1)
             {
                 Console.WriteLine("Please select a valid option");
                 selectAnswer = UiMethods.SelectAnswer();
             }
-
-
             return selectAnswer;
         }
 

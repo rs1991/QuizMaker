@@ -7,11 +7,11 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
+
+
             UiMethods.GamePlayChoice();
 
-           
 
-            
 
             //UiMethods.GameMode m = UiMethods.GamePlayChoice();
 
@@ -23,7 +23,7 @@ namespace QuizMaker
             //}
 
 
-            QnA Question = new QnA();
+            
            
             List <QnA> QuestionList = LogicMethods.GenerateQnAList();
             
