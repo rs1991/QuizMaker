@@ -7,19 +7,20 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
+            UiMethods.GamePlayChoice();
+
+           
+
             
 
-            //
-            //GameMode m = UiMethods.GamePlayChoice();
-            //
-            //if(m == GameMode.Play)
-            //{
+            //UiMethods.GameMode m = UiMethods.GamePlayChoice();
 
-            //            }
-            //          else
-            //        {
-            //
-            //      }
+            //if (m == UiMethods.GameMode.Play)
+            //{
+            //}
+            //else
+            //{
+            //}
 
 
             QnA Question = new QnA();
@@ -36,11 +37,7 @@ namespace QuizMaker
             UiMethods.AnswerDisp(QuestionList[index]);
             int SelectedAnswer = UiMethods.SelectAnswer();
 
-            while (SelectedAnswer > 4 || SelectedAnswer < 1)
-            {
-                Console.WriteLine("Please select a valid option");
-                SelectedAnswer = UiMethods.SelectAnswer();
-            }
+            
 
             bool result = LogicMethods.VerifyAnswer(SelectedAnswer, QuestionList[index]);
             UiMethods.DisplayResultInfo(result);
