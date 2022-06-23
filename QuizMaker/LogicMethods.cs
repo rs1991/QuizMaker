@@ -140,16 +140,6 @@ namespace QuizMaker
                 return false;
             }
         }
-
-        public static void ValidateResponse(int SelectedAnswer)
-        {
-            if (SelectedAnswer > 4 || SelectedAnswer < 1)
-            {
-                Console.WriteLine("Please select a valid option");
-                //UiMethods.SelectAnswer();
-            }
-           
-        }
         
     }
 }

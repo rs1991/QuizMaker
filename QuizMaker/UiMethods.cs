@@ -30,26 +30,26 @@ namespace QuizMaker
             string choice = Console.ReadLine().ToUpper();
             switch (choice)
             {
-                case "P": //Add questions
+                case "P": 
                     Console.WriteLine("---------------------");
                     break;
-                    case "A": //Play the game
+                case "A": 
                     LogicMethods.CreateQuestions();
                     break;
-                    default:
+                default:
                     Console.WriteLine("Select a valid option");
                     break;
             }
-            }
+        }
 
         public static void DisplayQuestion(QnA q)
         {
             Console.WriteLine(q.Question);
-        }      
+        }
 
         public static void AnswerDisp(QnA a)
         {
-                        
+
             foreach (var ans in a.Answers)
             {
                 Console.WriteLine(ans);
@@ -63,7 +63,7 @@ namespace QuizMaker
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
             return selectAnswer;
         }
-               
+
         public static void DisplayResultInfo(bool correct)
         {
             if (correct)
