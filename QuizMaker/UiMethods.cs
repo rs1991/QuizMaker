@@ -22,25 +22,23 @@ namespace QuizMaker
             AddQuestion
         }
 
-        public static string GamePlayChoice()
+        public static void GamePlayChoice(GameMode mode)
         {
-            Console.WriteLine("Which mode would you like to choose? Select P to play and A to add questions");
-            string choice = Console.ReadLine().ToUpper();
-            
-            switch (choice)
+            //Console.WriteLine("Which mode would you like to choose? Select P to play and A to add questions");
+            //string choice = Console.ReadLine().ToUpper();
+
+            switch (mode)
             {
-                case "P":
-                    Console.WriteLine(GameMode.Play);
+                case GameMode.Play:
+                    Console.WriteLine("Play");
                     break;
-                case "A":
-                    Console.WriteLine(GameMode.AddQuestion);
+                case GameMode.AddQuestion:
+                    Console.WriteLine("Add questions");
                     break;
             }
-            return choice;
+
         }
-
-
-        
+                
 
         public static void DisplayQuestion(QnA q)
         {
@@ -78,6 +76,27 @@ namespace QuizMaker
             else
             {
                 Console.WriteLine("Wrong!");
+            }
+        }
+
+        public static void CreateQuestions()
+        {
+            List<string> QuestionList = new List<string>();
+            Console.Write("Please add your question: ");
+            string UserQuestion = Console.ReadLine();
+            QnA NewQuestion = new QnA();
+            NewQuestion.Question = UserQuestion;
+            Console.Write("Please add your answers: ");
+            string newAnswer = Console.ReadLine();
+            NewQuestion.Answers.Add("");
+            NewQuestion.Answers.Add("");
+            NewQuestion.Answers.Add("");
+            NewQuestion.Answers.Add("");
+            QuestionList.Add(Console.ReadLine());
+            QnA Question1 = new QnA();
+            for (int i = 0; i < QuestionList.Count; i++)
+            {
+                Console.WriteLine(QuestionList[i]);
             }
         }
 

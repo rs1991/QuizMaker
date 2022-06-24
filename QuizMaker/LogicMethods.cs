@@ -105,26 +105,7 @@ namespace QuizMaker
             return QuestionList;
         }
 
-        public static void CreateQuestions()
-        {
-            List<string> QuestionList = new List<string>();
-            Console.Write("Please add your question: ");
-            string UserQuestion = Console.ReadLine();
-            QnA NewQuestion = new QnA();
-            NewQuestion.Question = UserQuestion;
-            Console.Write("Please add your answers: ");
-            string newAnswer = Console.ReadLine();
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            QuestionList.Add(Console.ReadLine());
-            QnA Question1 = new QnA();
-            for (int i = 0; i < QuestionList.Count; i++)
-            {
-                Console.WriteLine(QuestionList[i]);
-            }
-        }
+       
 
 
         public static bool VerifyAnswer(int SelectedAnswer, QnA anAToCheck)
