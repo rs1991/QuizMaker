@@ -7,19 +7,27 @@ namespace QuizMaker
         {
             UiMethods.WelcomeMessage();
 
-            
-            Console.WriteLine("Select the game mode to play [P to play] or [A to add questions]");
-            string gameChoice = Console.ReadLine().ToUpper();
-            if (gameChoice == "P")
-            {
-                UiMethods.GamePlayChoice(UiMethods.GameMode.Play);
-            }
-            if (gameChoice == "A")
-            {
-                UiMethods.GamePlayChoice(UiMethods.GameMode.AddQuestion);
-                UiMethods.CreateQuestions();
 
-            }
+            //Console.WriteLine("Select the game mode to play [P to play] or [A to add questions]");
+            //string gameChoice = Console.ReadLine().ToUpper();
+
+            UiMethods.PromptToSelectGameChoice();
+
+            
+                
+            //if (gameChoice == "P")
+            //    {
+            //        UiMethods.GamePlayChoice(UiMethods.GameMode.Play);
+            //    }
+            //    if (gameChoice == "A")
+            //    {
+            //        UiMethods.GamePlayChoice(UiMethods.GameMode.AddQuestion);
+            //        UiMethods.CreateQuestions();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Please select a valid option");
+            //    }
 
 
             List <QnA> QuestionList = LogicMethods.GenerateQnAList();

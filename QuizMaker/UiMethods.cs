@@ -22,11 +22,36 @@ namespace QuizMaker
             AddQuestion
         }
 
+        public static int PromptToSelectGameChoice()
+        {
+            Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
+            int gameChoice = Convert.ToInt32(Console.ReadLine());
+
+            if (gameChoice == 1)
+            {
+                UiMethods.GamePlayChoice(UiMethods.GameMode.Play);
+            }
+            if (gameChoice == 2)
+            {
+                UiMethods.GamePlayChoice(UiMethods.GameMode.AddQuestion);
+                UiMethods.CreateQuestions();
+            }
+            while (gameChoice != 1 || gameChoice != 2)
+            {
+                Console.WriteLine("Insert valid option");
+                Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
+                gameChoice = Convert.ToInt32(Console.ReadLine());
+                break;
+            }
+
+
+            return gameChoice;
+        }
+
+        
+
         public static void GamePlayChoice(GameMode mode)
         {
-            //Console.WriteLine("Which mode would you like to choose? Select P to play and A to add questions");
-            //string choice = Console.ReadLine().ToUpper();
-
             switch (mode)
             {
                 case GameMode.Play:
@@ -36,7 +61,6 @@ namespace QuizMaker
                     Console.WriteLine("Add questions");
                     break;
             }
-
         }
                 
 
@@ -47,7 +71,6 @@ namespace QuizMaker
 
         public static void AnswerDisp(QnA a)
         {
-
             foreach (var ans in a.Answers)
             {
                 Console.WriteLine(ans);
@@ -81,23 +104,19 @@ namespace QuizMaker
 
         public static void CreateQuestions()
         {
-            List<string> QuestionList = new List<string>();
+            QnA QuestionAnswer = new QnA();
             Console.Write("Please add your question: ");
             string UserQuestion = Console.ReadLine();
-            QnA NewQuestion = new QnA();
-            NewQuestion.Question = UserQuestion;
-            Console.Write("Please add your answers: ");
-            string newAnswer = Console.ReadLine();
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            NewQuestion.Answers.Add("");
-            QuestionList.Add(Console.ReadLine());
-            QnA Question1 = new QnA();
-            for (int i = 0; i < QuestionList.Count; i++)
+            QuestionAnswer.Question = UserQuestion;
+            
+            for(int i = 0; i <4; i++)
             {
-                Console.WriteLine(QuestionList[i]);
+                Console.Write("Please add your 4 possible answers: ");
+                string answers = Console.ReadLine();
+                QuestionAnswer.Answers.Add(answers);
             }
+            
+            
         }
 
 
