@@ -18,8 +18,8 @@ namespace QuizMaker
 
             string path = @"C:\tmp\QuestionList.xml";
 
-            LogicMethods.WriteQnAList(QuestionList, path);
-            LogicMethods.LoadQnAList(path);                 
+            UiMethods.WriteQnAList(QuestionList, path);
+            UiMethods.LoadQnAList(path);                 
             var random = new Random();                               
             int index = random.Next(QuestionList.Count);                           
             UiMethods.DisplayQuestion(QuestionList[index]);
