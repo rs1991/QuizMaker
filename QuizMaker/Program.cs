@@ -9,11 +9,13 @@ namespace QuizMaker
                        
 
             UiMethods.PromptToSelectGameChoice();
-    
-            
 
-            List <QnA> QuestionList = LogicMethods.GenerateQnAList();
-            
+
+
+            //List <QnA> QuestionList = LogicMethods.GenerateQnAList();
+            List <QnA> QuestionList = UiMethods.CreateQuestions();
+
+
             string path = @"C:\tmp\QuestionList.xml";
 
             LogicMethods.WriteQnAList(QuestionList, path);

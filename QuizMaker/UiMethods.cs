@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace QuizMaker
 {
@@ -102,7 +103,7 @@ namespace QuizMaker
             }
         }
 
-        public static void CreateQuestions()
+        public static List<QnA> CreateQuestions()
         {
             QnA QuestionAnswer = new QnA();
             Console.Write("Please add your question: ");
@@ -115,8 +116,34 @@ namespace QuizMaker
                 string answers = Console.ReadLine();
                 QuestionAnswer.Answers.Add(answers);
             }
-            
-            
+
+            List<QnA> QuestionList = new List<QnA>();
+            QuestionList.Add(QuestionAnswer);
+
+            return QuestionList;
+
+
+
+        }
+
+        public static void WriteQnAList(List<QnA> QuestionList, string path)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
+            using (FileStream file = File.Create(path))
+            {
+                serializer.Serialize(file, QuestionList);
+            }
+        }
+
+        public static List<QnA> LoadQnAList(string path)
+        {
+            List<QnA> QuestionList;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
+            using (FileStream file = File.OpenRead(path))
+            {
+                QuestionList = serializer.Deserialize(file) as List<QnA>;
+            }
+            return QuestionList;
         }
 
 

@@ -85,25 +85,7 @@ namespace QuizMaker
             return QuestionList;
         }
 
-        public static void WriteQnAList(List<QnA>QuestionList, string path)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
-            using (FileStream file = File.Create(path))
-            {
-                serializer.Serialize(file, QuestionList);
-            }
-        }
-
-        public static List<QnA> LoadQnAList(string path)
-        {
-            List<QnA> QuestionList;
-            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
-            using (FileStream file = File.OpenRead(path))
-            {
-                QuestionList = serializer.Deserialize(file) as List<QnA>;
-            }
-            return QuestionList;
-        }
+        
 
        
 
