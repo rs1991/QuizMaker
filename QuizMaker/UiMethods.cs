@@ -17,60 +17,77 @@ namespace QuizMaker
             Console.WriteLine("--------------------");
         }
 
-        public enum GameMode
-        {
-            Play,
-            AddQuestion
-        }
+        //public enum GameMode
+        //{
+        //    Play,
+        //    AddQuestion
+        //}
 
-        public static int PromptToSelectGameChoice()
-        {
-            Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
-            int gameChoice = Convert.ToInt32(Console.ReadLine());
+        //public static GameMode GetGameMode(GameMode gameMode)
+        //{
+        //    bool validInput = false;
+        //    while (!validInput) //until the input is valid
+        //    {
+        //        Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
+        //        int gameChoice = Convert.ToInt32(Console.ReadLine());
+        //        if (gameChoice == 1)
+        //        {
+        //            return GameMode.Play;
+        //            validInput = true;
+        //        }
+        //        if (gameChoice == 2)
+        //        {
+        //            return GameMode.AddQuestion;
+        //            validInput = true;
+        //        }
 
-            if (gameChoice == 1)
-            {
-                UiMethods.GamePlayChoice(UiMethods.GameMode.Play);
-            }
-            if (gameChoice == 2)
-            {
-                UiMethods.GamePlayChoice(UiMethods.GameMode.AddQuestion);
-                UiMethods.CreateQuestions();
-            }
-            while (gameChoice != 1 || gameChoice != 2)
-            {
-                Console.WriteLine("Insert valid option");
-                Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
-                gameChoice = Convert.ToInt32(Console.ReadLine());
-                break;
-            }
+        //    }
+        //    return gameMode;
+        //}
+
+         
+
+            //if (gameChoice == 1 || gameChoice == 2)
+            //{
+            //    //valid input
+            //    if (gameChoice == 1)
+            //    {
+            //        UiMethods.GamePlayChoice(UiMethods.GameMode.Play);
+            //    }
+            //    if (gameChoice == 2)
+            //    {
+            //        UiMethods.GamePlayChoice(UiMethods.GameMode.AddQuestion);
+            //        UiMethods.CreateQuestions();
+            //    }
+            //}
+            //else
+            //{
+            //    //invalid input
+            //}
+
+            //while (gameChoice != 1 || gameChoice != 2)
+            //{
+            //    Console.WriteLine("Insert valid option");
+            //    Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
+            //    gameChoice = Convert.ToInt32(Console.ReadLine());
+            //    break;
+            //}
 
 
-            return gameChoice;
-        }
+          //  return gameChoice;
+        
+
+
 
         
 
-        public static void GamePlayChoice(GameMode mode)
-        {
-            switch (mode)
-            {
-                case GameMode.Play:
-                    Console.WriteLine("Play");
-                    break;
-                case GameMode.AddQuestion:
-                    Console.WriteLine("Add questions");
-                    break;
-            }
-        }
-                
 
         public static void DisplayQuestion(QnA q)
         {
             Console.WriteLine(q.Question);
         }
 
-        public static void AnswerDisp(QnA a)
+        public static void DisplayAnswers(QnA a)
         {
             foreach (var ans in a.Answers)
             {
@@ -109,42 +126,25 @@ namespace QuizMaker
             Console.Write("Please add your question: ");
             string UserQuestion = Console.ReadLine();
             QuestionAnswer.Question = UserQuestion;
-            
-            for(int i = 0; i <4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Console.Write("Please add your 4 possible answers: ");
                 string answers = Console.ReadLine();
                 QuestionAnswer.Answers.Add(answers);
             }
 
+            Console.Write("Select correct answer: ");
+            int CorrectAnsIndex = Convert.ToInt32(Console.ReadLine());
+            QuestionAnswer.CorrectAnswerIndex = CorrectAnsIndex;
+
             List<QnA> QuestionList = new List<QnA>();
             QuestionList.Add(QuestionAnswer);
 
             return QuestionList;
 
-
-
         }
 
-        public static void WriteQnAList(List<QnA> QuestionList, string path)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
-            using (FileStream file = File.Create(path))
-            {
-                serializer.Serialize(file, QuestionList);
-            }
-        }
-
-        public static List<QnA> LoadQnAList(string path)
-        {
-            List<QnA> QuestionList;
-            XmlSerializer serializer = new XmlSerializer(typeof(List<QnA>));
-            using (FileStream file = File.OpenRead(path))
-            {
-                QuestionList = serializer.Deserialize(file) as List<QnA>;
-            }
-            return QuestionList;
-        }
+        
 
 
     }
