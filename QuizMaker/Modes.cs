@@ -29,7 +29,7 @@ namespace QuizMaker
                 }
                 if (gameChoice == 2)
                 {
-                    //validInput = true;
+                    validInput = true;
                     return GameMode.AddQuestion;
                 }
                 else
