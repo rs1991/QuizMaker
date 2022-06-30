@@ -14,7 +14,12 @@ namespace QuizMaker
             Console.WriteLine("Welcome to the quiz!");
             Console.WriteLine("--------------------");
         }
-        public static void DisplayQuestionAndAnswer(QnA q)
+
+        /// <summary>
+        /// Displays the question along with possible answers
+        /// </summary>
+        /// <param name="q"></param>
+        public static void DisplayQnA(QnA q)
         {
             Console.WriteLine(q.Question);
 
@@ -25,16 +30,7 @@ namespace QuizMaker
 
 
         }
-
-        //public static void DisplayAnswers(QnA a)
-        //{
-            
-        //    foreach (var ans in a.Answers)
-        //    {
-        //        Console.WriteLine(ans);
-        //    }
-
-        //}
+                
         public static int SelectAnswer()
         {
             Console.WriteLine("----------------------------");

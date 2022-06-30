@@ -18,7 +18,7 @@ namespace QuizMaker
                 List<QnA> QuestionList1 = GenerateQnAList(); 
                 var random = new Random();
                 int index = random.Next(QuestionList1.Count);
-                DisplayQuestionAndAnswer(QuestionList1[index]);
+                DisplayQnA(QuestionList1[index]);
                 int SelectedAnswer = SelectAnswer();
                 bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
                                 
