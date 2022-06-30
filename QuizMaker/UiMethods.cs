@@ -14,33 +14,40 @@ namespace QuizMaker
             Console.WriteLine("Welcome to the quiz!");
             Console.WriteLine("--------------------");
         }
-        public static void DisplayQuestion(QnA q)
+        public static void DisplayQuestionAndAnswer(QnA q)
         {
             Console.WriteLine(q.Question);
-        }
 
-        public static void DisplayAnswers(QnA a)
-        {
-            
-            foreach (var ans in a.Answers)
+            foreach (var ans in q.Answers)
             {
                 Console.WriteLine(ans);
             }
 
+
         }
+
+        //public static void DisplayAnswers(QnA a)
+        //{
+            
+        //    foreach (var ans in a.Answers)
+        //    {
+        //        Console.WriteLine(ans);
+        //    }
+
+        //}
         public static int SelectAnswer()
         {
             Console.WriteLine("----------------------------");
             Console.WriteLine("Select answer 1, 2, 3 or 4: ");
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
-            
+
             while (selectAnswer > 4 || selectAnswer < 1)
-            
+
             {
                 Console.WriteLine("Please select a valid option");
                 selectAnswer = UiMethods.SelectAnswer();
             }
-            
+
             return selectAnswer;
         }
 

@@ -11,23 +11,24 @@ namespace QuizMaker
             WelcomeMessage();
             GameMode gm = GetGameMode();
             DisplayGameMode(gm);
+            
             if (gm == GameMode.Play)
             {
-                //do gameplay stuff
+               
                 List<QnA> QuestionList1 = GenerateQnAList(); 
                 var random = new Random();
                 int index = random.Next(QuestionList1.Count);
-                DisplayQuestion(QuestionList1[index]);
-                DisplayAnswers(QuestionList1[index]);
+                DisplayQuestionAndAnswer(QuestionList1[index]);
                 int SelectedAnswer = SelectAnswer();
                 bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                                
                 
+                DisplayResultInfo(result);
+
                 if (result == true)
                 {
                     TotalScore();
                 }
-                
-                DisplayResultInfo(result);
             }
             if (gm == GameMode.AddQuestion)
             {
