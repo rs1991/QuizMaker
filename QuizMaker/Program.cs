@@ -21,6 +21,12 @@ namespace QuizMaker
                 DisplayAnswers(QuestionList1[index]);
                 int SelectedAnswer = SelectAnswer();
                 bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                
+                if (result == true)
+                {
+                    TotalScore();
+                }
+                
                 DisplayResultInfo(result);
             }
             if (gm == GameMode.AddQuestion)

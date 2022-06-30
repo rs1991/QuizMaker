@@ -82,5 +82,12 @@ namespace QuizMaker
             
             return QuestionList;
         }
+
+        public static void TotalScore()
+        {
+            double Total = 0;
+            Total++;
+            Console.WriteLine("Your total score is: " + Total);
+        }
     }
 }
