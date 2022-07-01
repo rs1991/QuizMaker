@@ -24,12 +24,12 @@ namespace QuizMaker
                 int gameChoice = Convert.ToInt32(Console.ReadLine());
                 if (gameChoice == 1)
                 {
-                    //validInput = true;
+                    
                     return GameMode.Play;
                 }
                 if (gameChoice == 2)
                 {
-                    validInput = true;
+                    
                     return GameMode.AddQuestion;
                 }
                 else

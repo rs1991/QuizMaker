@@ -22,13 +22,10 @@ namespace QuizMaker
         public static void DisplayQnA(QnA q)
         {
             Console.WriteLine(q.Question);
-
             foreach (var ans in q.Answers)
             {
                 Console.WriteLine(ans);
             }
-
-
         }
                 
         public static int SelectAnswer()
@@ -36,14 +33,12 @@ namespace QuizMaker
             Console.WriteLine("----------------------------");
             Console.WriteLine("Select answer 1, 2, 3 or 4: ");
             int selectAnswer = Convert.ToInt32(Console.ReadLine());
-
+            
             while (selectAnswer > 4 || selectAnswer < 1)
-
             {
-                Console.WriteLine("Please select a valid option");
-                selectAnswer = UiMethods.SelectAnswer();
+                Console.WriteLine("Please select one of valid options, [1, 2, 3 or 4");
+                selectAnswer  = Convert.ToInt32(Console.ReadLine());
             }
-
             return selectAnswer;
         }
 
