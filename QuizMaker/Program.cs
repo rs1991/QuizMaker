@@ -23,19 +23,22 @@ namespace QuizMaker
 
                 if (gm == GameMode.Play)
                 {
-                    List<QnA> QuestionList1 = GenerateQnAList();
-                    var random = new Random();
-                    int index = random.Next(QuestionList1.Count);
-                    DisplayQnA(QuestionList1[index]);
-                    int SelectedAnswer = SelectAnswer();
-                    bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                    
+                    for (int i = 0; i < 5; i++)
+                    {
+                        List<QnA> QuestionList1 = GenerateQnAList();
+                        var random = new Random();
+                        int index = random.Next(QuestionList1.Count);
+                        DisplayQnA(QuestionList1[index]);
+                        int SelectedAnswer = SelectAnswer();
+                        bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
 
 
-
-                    DisplayResultInfo(result);
                     if (result == true)
                     {
                         TotalScore();
+                    }
+
                     }
 
                     if (gm == GameMode.AddQuestion)
