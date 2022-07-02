@@ -27,7 +27,12 @@ namespace QuizMaker
                 Console.WriteLine(ans);
             }
         }
-                
+
+
+        /// <summary>
+        /// Allows user to select answer
+        /// </summary>
+        /// <returns>Selected answer from User</returns>
         public static int SelectAnswer()
         {
             Console.WriteLine("----------------------------");
