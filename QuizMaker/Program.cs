@@ -14,33 +14,51 @@ namespace QuizMaker
             WelcomeMessage();
             GameMode gm = GetGameMode();
             DisplayGameMode(gm);
-            
-            if (gm == GameMode.Play)
-            {
-               
-                List<QnA> QuestionList1 = GenerateQnAList(); 
-                var random = new Random();
-                int index = random.Next(QuestionList1.Count);
-                DisplayQnA(QuestionList1[index]);
-                int SelectedAnswer = SelectAnswer();
-                bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
-                                
-                
-                DisplayResultInfo(result);
 
-                if (result == true)
-                {
-                    TotalScore();
-                }
-            }
-            if (gm == GameMode.AddQuestion)
+            bool playMore = true;
+
+            while (playMore)
             {
-                //do question adding stuff
-                List<QnA> QuestionList = CreateQuestions();
-                
-                WriteQnAList(QuestionList, path);
-                LoadQnAList(path);
+
+
+                if (gm == GameMode.Play)
+                {
+                    List<QnA> QuestionList1 = GenerateQnAList();
+                    var random = new Random();
+                    int index = random.Next(QuestionList1.Count);
+                    DisplayQnA(QuestionList1[index]);
+                    int SelectedAnswer = SelectAnswer();
+                    bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+
+
+
+                    DisplayResultInfo(result);
+                    if (result == true)
+                    {
+                        TotalScore();
+                    }
+
+                    if (gm == GameMode.AddQuestion)
+                    {
+                        //do question adding stuff
+                        List<QnA> QuestionList = CreateQuestions();
+                        WriteQnAList(QuestionList, path);
+                        LoadQnAList(path);
+                    }
+                }
+
+                if (PlayAgain())
+                {
+                    playMore = true;
+                }
+                else
+                {
+                    EndMessage();
+                    break;
+                }
+
+
+                }
             }
         }
     }
-}

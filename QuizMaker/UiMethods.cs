@@ -81,11 +81,32 @@ namespace QuizMaker
             return QuestionList;
         }
 
+        public static bool PlayAgain()
+        {
+            string Answer;
+            Console.WriteLine("Would you like to play again? [Y or N]");
+            Answer = Console.ReadLine().ToUpper(); 
+            if(Answer == "Y")
+            {
+                return true;
+            }
+            else  
+            {
+                return false;
+            }
+            
+        }
+
         public static void TotalScore()
         {
             double Total = 0;
             Total++;
             Console.WriteLine("Your total score is: " + Total);
+        }
+
+        public static void EndMessage()
+        {
+            Console.WriteLine("Thanks for playing!");
         }
     }
 }
