@@ -23,7 +23,7 @@ namespace QuizMaker
 
                 if (gm == GameMode.Play)
                 {
-                    
+                    double Total = 0;
                     for (int i = 0; i < 5; i++)
                     {
                         List<QnA> QuestionList1 = GenerateQnAList();
@@ -32,12 +32,13 @@ namespace QuizMaker
                         DisplayQnA(QuestionList1[index]);
                         int SelectedAnswer = SelectAnswer();
                         bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
-
-
-                    if (result == true)
-                    {
-                        TotalScore();
-                    }
+                        
+                        if (result == true)
+                        {
+                            Total++;
+                        
+                        Console.WriteLine("Your result: " + Total);
+                        }
 
                     }
 

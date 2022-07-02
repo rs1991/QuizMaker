@@ -102,12 +102,7 @@ namespace QuizMaker
             
         }
 
-        public static void TotalScore()
-        {
-            double Total = 0;
-            Total++;
-            Console.WriteLine("Your total score is: " + Total);
-        }
+        
 
         public static void EndMessage()
         {
