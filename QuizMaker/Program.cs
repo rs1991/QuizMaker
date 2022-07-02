@@ -8,6 +8,9 @@ namespace QuizMaker
     {
         static void Main(string[] args)
         {
+
+            const string path = @"C:\tmp\QuestionList.xml";
+
             WelcomeMessage();
             GameMode gm = GetGameMode();
             DisplayGameMode(gm);
@@ -34,7 +37,7 @@ namespace QuizMaker
             {
                 //do question adding stuff
                 List<QnA> QuestionList = CreateQuestions();
-                string path = @"C:\tmp\QuestionList.xml";
+                
                 WriteQnAList(QuestionList, path);
                 LoadQnAList(path);
             }
