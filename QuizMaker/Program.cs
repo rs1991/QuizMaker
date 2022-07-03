@@ -37,14 +37,14 @@ namespace QuizMaker
                             Console.WriteLine("Your result: " + Total);
                         }
                     }
+                }
 
-                    if (gm == GameMode.AddQuestion)
-                    {
-                        //do question adding stuff
-                        List<QnA> QuestionList = CreateQuestions();
-                        WriteQnAList(QuestionList, path);
-                        LoadQnAList(path);
-                    }
+                if (gm == GameMode.AddQuestion)
+                {
+                    //do question adding stuff
+                    List<QnA> QuestionList = CreateQuestions();
+                    WriteQnAList(QuestionList, path);
+                    LoadQnAList(path);
                 }
 
                 if (PlayAgain())
