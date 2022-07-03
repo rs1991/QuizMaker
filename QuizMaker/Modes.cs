@@ -17,27 +17,24 @@ namespace QuizMaker
 
         public static GameMode GetGameMode()
         {
-            bool validInput = false;
-            while (!validInput) //until the input is valid
-            {                
+            while (true) //until the input is valid
+            {
                 Console.WriteLine("Select the game mode to play [1 to play] or [2 to add questions]");
                 int gameChoice = Convert.ToInt32(Console.ReadLine());
+
                 if (gameChoice == 1)
                 {
-                    
                     return GameMode.Play;
                 }
                 if (gameChoice == 2)
                 {
-                    
                     return GameMode.AddQuestion;
                 }
-                else
-                {
-                    Console.WriteLine("Please select a valid choice");
-                }
+
+                Console.WriteLine("Please select a valid choice");
+
             }
-            return validInput ? GameMode.AddQuestion : GameMode.Play;
+
         }
 
         public static void DisplayGameMode(GameMode mode)

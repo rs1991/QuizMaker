@@ -19,8 +19,6 @@ namespace QuizMaker
 
             while (playMore)
             {
-
-
                 if (gm == GameMode.Play)
                 {
                     double Total = 0;
@@ -32,14 +30,12 @@ namespace QuizMaker
                         DisplayQnA(QuestionList1[index]);
                         int SelectedAnswer = SelectAnswer();
                         bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
-                        
+
                         if (result == true)
                         {
                             Total++;
-                        
-                        Console.WriteLine("Your result: " + Total);
+                            Console.WriteLine("Your result: " + Total);
                         }
-
                     }
 
                     if (gm == GameMode.AddQuestion)
@@ -62,7 +58,7 @@ namespace QuizMaker
                 }
 
 
-                }
             }
         }
     }
+}
