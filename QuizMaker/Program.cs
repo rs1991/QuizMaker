@@ -21,21 +21,37 @@ namespace QuizMaker
             {
                 if (gm == GameMode.Play)
                 {
-                    double Total = 0;
-                    for (int i = 0; i < 5; i++)
+                    double TotalScore = 0;
+                    List<QnA> QuestionList1 = GenerateQnAList();
+                    var random = new Random();
+                    for (int i = 0; i < QuestionList1.Count; i++)
                     {
-                        List<QnA> QuestionList1 = GenerateQnAList();
-                        var random = new Random();
                         int index = random.Next(QuestionList1.Count);
                         DisplayQnA(QuestionList1[index]);
                         int SelectedAnswer = SelectAnswer();
-                        bool result = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                        bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                        DisplayResultInfo(answerIsCorrect);
 
-                        if (result == true)
+                        //ScoreTotal(answerIsCorrect);
+                        if(answerIsCorrect == true)
                         {
-                            Total++;
-                            Console.WriteLine("Your result: " + Total);
+                            TotalScore++;
                         }
+
+                        ScoreTotal(TotalScore);
+
+                        //TODO: Inform user if the answer was actually correct
+                        //if (answerIsCorrect == true)
+                        //{
+                        //    TotalScore++;
+                        //    Console.WriteLine("Your current score: " + TotalScore);
+                        //    Console.WriteLine("---------------------------------");
+                        //}
+                        //if (answerIsCorrect == false)
+                        //{
+                        //    Console.WriteLine("Your current score: " + TotalScore);
+                        //    Console.WriteLine("---------------------------------");
+                        //}
                     }
                 }
 
@@ -46,6 +62,7 @@ namespace QuizMaker
                     WriteQnAList(QuestionList, path);
                     LoadQnAList(path);
                 }
+
 
                 if (PlayAgain())
                 {
