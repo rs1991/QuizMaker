@@ -40,25 +40,16 @@ namespace QuizMaker
 
                         ScoreTotal(TotalScore);
 
-                        //TODO: Inform user if the answer was actually correct
-                        //if (answerIsCorrect == true)
-                        //{
-                        //    TotalScore++;
-                        //    Console.WriteLine("Your current score: " + TotalScore);
-                        //    Console.WriteLine("---------------------------------");
-                        //}
-                        //if (answerIsCorrect == false)
-                        //{
-                        //    Console.WriteLine("Your current score: " + TotalScore);
-                        //    Console.WriteLine("---------------------------------");
-                        //}
+                        
+                        
                     }
                 }
 
                 if (gm == GameMode.AddQuestion)
                 {
                     //do question adding stuff
-                    List<QnA> QuestionList = CreateQuestions();
+                    CreateQuestions();
+                    List<QnA> QuestionList = GenerateQnAList();
                     WriteQnAList(QuestionList, path);
                     LoadQnAList(path);
                 }
