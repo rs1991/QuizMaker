@@ -61,7 +61,7 @@ namespace QuizMaker
 
         }
 
-        public static QnA CreateQuestions() //TODO: gename to get.... also just return one QnA Obj
+        public static QnA GenerateQuestions() //TODO: gename to get.... also just return one QnA Obj
         {
             QnA QuestionAnswer = new QnA();
             Console.Write("Please add your question: ");
@@ -78,11 +78,7 @@ namespace QuizMaker
 
             Console.Write("Select correct answer: ");
             int CorrectAnsIndex = Convert.ToInt32(Console.ReadLine());
-            
             QuestionAnswer.CorrectAnswerIndex = CorrectAnsIndex;
-            //List<QnA> QuestionList = new List<QnA>();
-            //QuestionList.Add(QuestionAnswer);
-            
             return QuestionAnswer;
         }
 
