@@ -23,25 +23,30 @@ namespace QuizMaker
                 {
                     double TotalScore = 0;
                     List<QnA> QuestionList1 = GenerateQnAList();
-                    var random = new Random();
-                    for (int i = 0; i < QuestionList1.Count; i++)
-                    {
+
+                    int count = 0;
+                   
+                    while(QuestionList1.Count != count) {
+                        
+                          
+                        
+                        var random = new Random();
                         int index = random.Next(QuestionList1.Count);
                         DisplayQnA(QuestionList1[index]);
                         int SelectedAnswer = SelectAnswer();
                         bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
                         DisplayResultInfo(answerIsCorrect);
-
-                        //ScoreTotal(answerIsCorrect);
-                        if(answerIsCorrect == true)
+                        if (answerIsCorrect == true)
                         {
                             TotalScore++;
                         }
-
                         ScoreTotal(TotalScore);
+                        
+                        
+                            QuestionList1.RemoveAt(index);
+                        
 
-                        
-                        
+
                     }
                 }
 
