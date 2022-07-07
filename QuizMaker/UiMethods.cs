@@ -61,7 +61,7 @@ namespace QuizMaker
 
         }
 
-        public static QnA GenerateQuestions() //TODO: gename to get.... also just return one QnA Obj
+        public static QnA GenerateQuestions() 
         {
             QnA QuestionAnswer = new QnA();
             Console.Write("Please add your question: ");
@@ -104,7 +104,7 @@ namespace QuizMaker
             bool answerIsCorrect = true;
             if (answerIsCorrect == true)
             {
-                //Score++;
+                
                 Console.WriteLine("Your current score: " + Score);
                 Console.WriteLine("---------------------------------");
             }
@@ -113,6 +113,21 @@ namespace QuizMaker
            return answerIsCorrect;
         }
 
+        public static bool AddMoreQuestions()
+        {
+            string Response;
+            Console.WriteLine("Would you like to add more questions? [Y Or N]");
+            Response = Console.ReadLine();
+            
+            if(Response == "Y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         
 
         public static void EndMessage()
