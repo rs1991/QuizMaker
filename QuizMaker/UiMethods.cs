@@ -117,7 +117,7 @@ namespace QuizMaker
         {
             string Response;
             Console.WriteLine("Would you like to add more questions? [Y Or N]");
-            Response = Console.ReadLine();
+            Response = Console.ReadLine().ToUpper();
             
             if(Response == "Y")
             {
@@ -127,6 +127,11 @@ namespace QuizMaker
             {
                 return false;
             }
+        }
+
+        public static void AddMoreQuestionsEndMessage()
+        {
+            Console.WriteLine("Thanks for adding questions, see you next time!");
         }
         
 
