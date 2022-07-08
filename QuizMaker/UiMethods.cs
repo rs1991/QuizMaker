@@ -113,7 +113,7 @@ namespace QuizMaker
            return answerIsCorrect;
         }
 
-        public static bool AddMoreQuestions()
+        public static bool AddMoreQuestion()
         {
             string Response;
             Console.WriteLine("Would you like to add more questions? [Y Or N]");
