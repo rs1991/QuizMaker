@@ -102,14 +102,15 @@ namespace QuizMaker
         {
             
             bool answerIsCorrect = true;
+
             if (answerIsCorrect == true)
             {
                 
                 Console.WriteLine("Your current score: " + Score);
                 Console.WriteLine("---------------------------------");
             }
-                Console.WriteLine("Your current score: " + Score);
-                Console.WriteLine("---------------------------------");
+                //Console.WriteLine("Your current score: " + Score);
+                //Console.WriteLine("---------------------------------");
            return answerIsCorrect;
         }
 

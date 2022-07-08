@@ -22,31 +22,28 @@ namespace QuizMaker
                 if (gm == GameMode.Play)
                 {
                     double TotalScore = 0;
+                    
                     List<QnA> QuestionList1 = GenerateQnAList();
-
-                    int count = 0;
-                   
-                    while(QuestionList1.Count != count) {
-                        
-                          
+                    
+                    while(QuestionList1.Count != 0) {
                         
                         var random = new Random();
                         int index = random.Next(QuestionList1.Count);
+                        
                         DisplayQnA(QuestionList1[index]);
+                        
                         int SelectedAnswer = SelectAnswer();
                         bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                        
                         DisplayResultInfo(answerIsCorrect);
+                        
                         if (answerIsCorrect == true)
                         {
                             TotalScore++;
                         }
+                        
                         ScoreTotal(TotalScore);
-                        
-                        
-                            QuestionList1.RemoveAt(index);
-                        
-
-
+                        QuestionList1.RemoveAt(index);
                     }
                 }
 
@@ -57,7 +54,7 @@ namespace QuizMaker
                     List<QnA> QuestionList = GenerateQnAList();
                     WriteQnAList(QuestionList, path);
                     LoadQnAList(path);
-                    if (AddMoreQuestions())
+                    if (AddMoreQuestion())
                     {
                       GenerateQuestions();
                     }
