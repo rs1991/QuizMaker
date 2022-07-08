@@ -35,16 +35,28 @@ namespace QuizMaker
         /// <returns>Selected answer from User</returns>
         public static int SelectAnswer()
         {
-            Console.WriteLine("----------------------------");
-            Console.WriteLine("Select answer 1, 2, 3 or 4: ");
-            int selectAnswer = Convert.ToInt32(Console.ReadLine());
-            
-            while (selectAnswer > 4 || selectAnswer < 1)
+
+            int selectAnswer = 0;
+            try
             {
-                Console.WriteLine("Please select one of valid options, [1, 2, 3 or 4");
-                selectAnswer  = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("----------------------------");
+                Console.WriteLine("Select answer 1, 2, 3 or 4: ");
+                selectAnswer = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
             }
             return selectAnswer;
+
+
+            //while (selectAnswer > 4 || selectAnswer < 1)
+            //{
+            //    Console.WriteLine("Please select one of valid options, [1, 2, 3 or 4");
+            //    selectAnswer = Convert.ToInt32(Console.ReadLine());
+            //}
+            //return selectAnswer;
         }
 
         public static void DisplayResultInfo(bool correct)

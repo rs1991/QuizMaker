@@ -32,6 +32,8 @@ namespace QuizMaker
                         
                         DisplayQnA(QuestionList1[index]);
                         
+                        
+
                         int SelectedAnswer = SelectAnswer();
                         bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
                         
