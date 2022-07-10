@@ -108,6 +108,7 @@ namespace QuizMaker
 
         public static bool VerifyAnswer(int SelectedAnswer, QnA anAToCheck)
         {
+            
             SelectedAnswer -= 1;
             if (anAToCheck.CorrectAnswerIndex == SelectedAnswer)
             {
@@ -118,10 +119,6 @@ namespace QuizMaker
                 return false;
             }
         }
-
-        
-       
+          
     }
-    }
-
-        
+}

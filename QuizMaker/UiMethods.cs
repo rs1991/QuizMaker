@@ -35,33 +35,34 @@ namespace QuizMaker
         /// <returns>Selected answer from User</returns>
         public static int SelectAnswer()
         {
-
             int selectAnswer = 0;
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Select answer 1, 2, 3 or 4: ");
             try
             {
-                Console.WriteLine("----------------------------");
-                Console.WriteLine("Select answer 1, 2, 3 or 4: ");
                 selectAnswer = Convert.ToInt32(Console.ReadLine());
+
+                while (selectAnswer > 4 || selectAnswer < 1)
+                {
+                    Console.WriteLine("Please select one of the following valid options, [1, 2, 3, 4]");
+                    selectAnswer = Convert.ToInt32(Console.ReadLine());
+
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                
+                Console.WriteLine("Error info: " + e.Message);
+
+                Console.WriteLine("Please select one of the following valid options, [1, 2, 3, 4]");
+                selectAnswer = Convert.ToInt32(Console.ReadLine());
             }
+
             return selectAnswer;
-
-
-            //while (selectAnswer > 4 || selectAnswer < 1)
-            //{
-            //    Console.WriteLine("Please select one of valid options, [1, 2, 3 or 4");
-            //    selectAnswer = Convert.ToInt32(Console.ReadLine());
-            //}
-            //return selectAnswer;
         }
 
         public static void DisplayResultInfo(bool correct)
         {
-            
             if (correct)
             {
                 Console.WriteLine("Correct!");
@@ -70,17 +71,16 @@ namespace QuizMaker
             {
                 Console.WriteLine("Wrong!");
             }
-
         }
 
-        public static QnA GenerateQuestions() 
+        public static QnA GenerateQuestion()
         {
             QnA QuestionAnswer = new QnA();
             Console.Write("Please add your question: ");
-            
+
             string UserQuestion = Console.ReadLine();
             QuestionAnswer.Question = UserQuestion;
-            
+
             for (int i = 0; i < 4; i++)
             {
                 Console.Write("Please add your 4 possible answers: ");
@@ -91,6 +91,7 @@ namespace QuizMaker
             Console.Write("Select correct answer: ");
             int CorrectAnsIndex = Convert.ToInt32(Console.ReadLine());
             QuestionAnswer.CorrectAnswerIndex = CorrectAnsIndex;
+
             return QuestionAnswer;
         }
 
@@ -98,32 +99,29 @@ namespace QuizMaker
         {
             string Answer;
             Console.WriteLine("Would you like to play again? [Y or N]");
-            Answer = Console.ReadLine().ToUpper(); 
-            if(Answer == "Y")
+            Answer = Console.ReadLine().ToUpper();
+            if (Answer == "Y")
             {
                 return true;
             }
-            else  
+            else
             {
                 return false;
             }
-            
+
         }
 
         public static bool ScoreTotal(double Score)
         {
-            
             bool answerIsCorrect = true;
 
             if (answerIsCorrect == true)
             {
-                
+                Console.WriteLine("---------------------------------");
                 Console.WriteLine("Your current score: " + Score);
                 Console.WriteLine("---------------------------------");
             }
-                //Console.WriteLine("Your current score: " + Score);
-                //Console.WriteLine("---------------------------------");
-           return answerIsCorrect;
+            return answerIsCorrect;
         }
 
         public static bool AddMoreQuestion()
@@ -131,8 +129,8 @@ namespace QuizMaker
             string Response;
             Console.WriteLine("Would you like to add more questions? [Y Or N]");
             Response = Console.ReadLine().ToUpper();
-            
-            if(Response == "Y")
+
+            if (Response == "Y")
             {
                 return true;
             }
@@ -146,7 +144,7 @@ namespace QuizMaker
         {
             Console.WriteLine("Thanks for adding questions, see you next time!");
         }
-        
+
 
         public static void EndMessage()
         {

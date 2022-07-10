@@ -23,19 +23,18 @@ namespace QuizMaker
                 {
                     double TotalScore = 0;
                     
-                    List<QnA> QuestionList1 = GenerateQnAList();
+                    List<QnA> QuestionList = GenerateQnAList();
                     
-                    while(QuestionList1.Count != 0) {
+                    while(QuestionList.Count != 0) {
                         
                         var random = new Random();
-                        int index = random.Next(QuestionList1.Count);
+                        int index = random.Next(QuestionList.Count);
                         
-                        DisplayQnA(QuestionList1[index]);
+                        DisplayQnA(QuestionList[index]);
                         
                         
-
                         int SelectedAnswer = SelectAnswer();
-                        bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList1[index]);
+                        bool answerIsCorrect = VerifyAnswer(SelectedAnswer, QuestionList[index]);
                         
                         DisplayResultInfo(answerIsCorrect);
                         
@@ -45,20 +44,22 @@ namespace QuizMaker
                         }
                         
                         ScoreTotal(TotalScore);
-                        QuestionList1.RemoveAt(index);
+                        QuestionList.RemoveAt(index);
                     }
                 }
 
                 if (gm == GameMode.AddQuestion)
                 {
-                 
-                    GenerateQuestions();
-                    List<QnA> QuestionList = GenerateQnAList();
+
+                    List<QnA> QuestionList = new();
+                    var qna = GenerateQuestion();
+                    QuestionList.Add(qna);
+
                     WriteQnAList(QuestionList, path);
                     LoadQnAList(path);
                     if (AddMoreQuestion())
                     {
-                      GenerateQuestions();
+                      GenerateQuestion();
                     }
                     AddMoreQuestionsEndMessage();
                  
