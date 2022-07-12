@@ -22,10 +22,12 @@ namespace QuizMaker
                 if (gm == GameMode.Play)
                 {
                     double TotalScore = 0;
+
                     
-                    List<QnA> QuestionList = GenerateQnAList();
-                    
-                    while(QuestionList.Count != 0) {
+                    List<QnA> QuestionList = LoadQnAList(path);
+
+
+                    while (QuestionList.Count != 0) {
                         
                         var random = new Random();
                         int index = random.Next(QuestionList.Count);
@@ -57,11 +59,14 @@ namespace QuizMaker
 
                     WriteQnAList(QuestionList, path);
                     LoadQnAList(path);
+
+
                     if (AddMoreQuestion())
                     {
                       GenerateQuestion();
                     }
                     AddMoreQuestionsEndMessage();
+                    break;
                  
                 }
 

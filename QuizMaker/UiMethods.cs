@@ -36,24 +36,24 @@ namespace QuizMaker
         public static int SelectAnswer()
         {
             int selectAnswer = 0;
-
             Console.WriteLine("----------------------------");
             Console.WriteLine("Select answer 1, 2, 3 or 4: ");
             try
             {
                 selectAnswer = Convert.ToInt32(Console.ReadLine());
-
-                while (selectAnswer > 4 || selectAnswer < 1)
-                {
-                    Console.WriteLine("Please select one of the following valid options, [1, 2, 3, 4]");
-                    selectAnswer = Convert.ToInt32(Console.ReadLine());
-
-                }
+                
             }
+
             catch (Exception e)
             {
                 Console.WriteLine("Error info: " + e.Message);
+            }
 
+
+
+
+            while (selectAnswer > 4 || selectAnswer < 1)
+            {
                 Console.WriteLine("Please select one of the following valid options, [1, 2, 3, 4]");
                 selectAnswer = Convert.ToInt32(Console.ReadLine());
             }
@@ -93,6 +93,9 @@ namespace QuizMaker
             QuestionAnswer.CorrectAnswerIndex = CorrectAnsIndex;
 
             return QuestionAnswer;
+
+            
+
         }
 
         public static bool PlayAgain()
