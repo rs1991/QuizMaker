@@ -92,6 +92,12 @@ namespace QuizMaker
             int CorrectAnsIndex = Convert.ToInt32(Console.ReadLine());
             QuestionAnswer.CorrectAnswerIndex = CorrectAnsIndex;
 
+            while (CorrectAnsIndex > 4 || CorrectAnsIndex < 1)
+            {
+                Console.WriteLine("Please select one of the following valid options, [1, 2, 3, 4]");
+                CorrectAnsIndex = Convert.ToInt32(Console.ReadLine());
+            }
+
             return QuestionAnswer;
 
             
