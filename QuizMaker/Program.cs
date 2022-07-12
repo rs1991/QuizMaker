@@ -52,22 +52,18 @@ namespace QuizMaker
 
                 if (gm == GameMode.AddQuestion)
                 {
-
-                    List<QnA> QuestionList = new();
+                    List<QnA> QuestionList = LoadQnAList(path);
                     var qna = GenerateQuestion();
                     QuestionList.Add(qna);
-
+                    //LoadQnAList(path);
                     WriteQnAList(QuestionList, path);
-                    LoadQnAList(path);
-
-
                     if (AddMoreQuestion())
                     {
-                      GenerateQuestion();
+                        qna = GenerateQuestion();
+                        QuestionList.Add(qna);
                     }
                     AddMoreQuestionsEndMessage();
                     break;
-                 
                 }
 
 
