@@ -55,6 +55,8 @@ namespace QuizMaker
                     List<QnA> QuestionList = LoadQnAList(path);
                     var qna = GenerateQuestion();
                     QuestionList.Add(qna);
+                    
+                    
                     //LoadQnAList(path);
                     WriteQnAList(QuestionList, path);
                     if (AddMoreQuestion())
@@ -79,6 +81,6 @@ namespace QuizMaker
 
 
             }
-        }
+         }
     }
 }
